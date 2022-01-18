@@ -11,6 +11,7 @@ export const mergeFileConfigs = (configs: {[key: string]: any}) => {
   return R.reduce(R.mergeDeepRight, configs.defaultConfig, [
     configs.envConfig,
     configs.deploymentConfig,
-    configs.userConfig
+    configs.userConfig,
+    configs.systemConfig
   ])
 }
