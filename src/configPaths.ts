@@ -12,6 +12,7 @@ export type ConfigTypes = {
   envConfig: string
   deploymentConfig: string
   userConfig: string
+  systemConfig: string
 }
 
 export type NonConfigEnv = {
@@ -23,6 +24,7 @@ export type NonConfigEnv = {
     USER?: string
     USERNAME?: string
     NODE_CONFIG_TS_DIR?: string
+    ETCCONFIG?:string
   }
 }
 
@@ -52,5 +54,6 @@ export const configPaths = <T extends NonConfigEnv>(
       process.env['USERNAME'] ||
       DEFAULT_FILENAME}.json`
   )
-  return {defaultConfig, envConfig, deploymentConfig, userConfig}
+  const systemConfig = path.resolve("/etc/sdnsquare/",`${process.env['ETCCONFIG']||"grid"}.json`)
+  return {defaultConfig, envConfig, deploymentConfig, userConfig,systemConfig}
 }
