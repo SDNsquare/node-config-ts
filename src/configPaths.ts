@@ -28,7 +28,7 @@ export type NonConfigEnv = {
     NODE_CONFIG_TS_DIR?: string
     ETCCONFIG?:string
   }
-  argv: string[]
+  argv?: string[]
 }
 
 export const configPaths = <T extends NonConfigEnv>(
