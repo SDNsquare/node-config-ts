@@ -31,7 +31,7 @@
     "lint": "tslint --project .",
     "prettier": "git ls-files | grep -E '.*\\.(ts|md|json)$' | xargs prettier --write --config=.prettierrc",
     "test": "mocha",
-    "postinstall": "tsc --outDir ./build"
+    "postinstall": "tsc --outDir ./"
   },
   "bin": "./bin/cli",
   "config": {
