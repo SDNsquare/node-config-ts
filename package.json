@@ -17,7 +17,8 @@
     "travis-deploy-once": "travis-deploy-once",
     "lint": "tslint --project .",
     "prettier": "git ls-files | grep -E '.*\\.(ts|md|json)$' | xargs prettier --write --config=.prettierrc",
-    "test": "mocha"
+    "test": "mocha",
+    "postinstall": "tsc --outDir ./build"
   },
   "bin": "./bin/cli",
   "devDependencies": {
