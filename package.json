@@ -12,6 +12,7 @@
     "webpack": "4.x"
   },
   "scripts": {
+    "build":"tsc",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once",
     "lint": "tslint --project .",
