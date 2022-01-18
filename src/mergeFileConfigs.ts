@@ -1,4 +1,5 @@
 import * as R from 'ramda'
+import { config } from '..'
 
 /**
  * Merges the configs in the following order —
@@ -12,6 +13,7 @@ export const mergeFileConfigs = (configs: {[key: string]: any}) => {
     configs.envConfig,
     configs.deploymentConfig,
     configs.userConfig,
-    configs.systemConfig
+    configs.systemConfig,
+    configs.cliConfig
   ])
 }

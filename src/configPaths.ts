@@ -4,6 +4,7 @@
 
 import * as path from 'path'
 import {baseConfigPath} from './baseConfigPath'
+import * as minimist from 'minimist';
 
 const DEFAULT_FILENAME = 'default'
 
@@ -13,6 +14,7 @@ export type ConfigTypes = {
   deploymentConfig: string
   userConfig: string
   systemConfig: string
+  cliConfig:string
 }
 
 export type NonConfigEnv = {
@@ -54,6 +56,8 @@ export const configPaths = <T extends NonConfigEnv>(
       process.env['USERNAME'] ||
       DEFAULT_FILENAME}.json`
   )
-  const systemConfig = path.resolve("/etc/sdnsquare/",`${process.env['ETCCONFIG']||"grid"}.json`)
-  return {defaultConfig, envConfig, deploymentConfig, userConfig,systemConfig}
+  const systemConfig = path.resolve("/etc/sdnsquare/", `${process.env['ETCCONFIG'] || "grid"}.json`)
+    const args=minimist(process.argv.slice(2))
+  const cliConfig = args['configfile']||"/noconfigfile"
+  return {defaultConfig, envConfig, deploymentConfig, userConfig,systemConfig,cliConfig}
 }
