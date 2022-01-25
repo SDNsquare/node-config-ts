@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const baseConfigPath_1 = require("./baseConfigPath");
-const minimist = require("minimist");
+const minimist_1 = require("minimist");
 const DEFAULT_FILENAME = 'default';
 exports.configPaths = (process) => {
     const baseDIR = baseConfigPath_1.baseConfigPath(process);
@@ -19,8 +19,8 @@ exports.configPaths = (process) => {
     const userConfig = path.resolve(process.cwd(), `${baseDIR}/user/${process.env['USER'] ||
         process.env['USERNAME'] ||
         DEFAULT_FILENAME}.json`);
-    const systemConfig = path.resolve('/etc/sdnsquare/', `${process.env['ETCCONFIG'] || 'grid'}.json`);
-    const args = minimist(process.argv.slice(2));
+    const systemConfig = path.resolve('/etc/sdnsquare/', `${process.env['ETCCONFIG'] || 'grid-backend'}.json`);
+    const args = minimist_1.default(process.argv.slice(2));
     const cliConfig = args['configfile'] || '/noconfigfile';
     return {
         defaultConfig,

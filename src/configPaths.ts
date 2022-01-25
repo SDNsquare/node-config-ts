@@ -59,7 +59,7 @@ export const configPaths = <T extends NonConfigEnv>(
   )
   const systemConfig = path.resolve(
     '/etc/sdnsquare/',
-    `${process.env['ETCCONFIG'] || 'grid'}.json`
+    `${process.env['ETCCONFIG'] || 'grid-backend'}.json`
   )
   const args = minimist(process.argv!.slice(2))
   const cliConfig = args['configfile'] || '/noconfigfile'
