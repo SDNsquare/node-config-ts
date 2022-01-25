@@ -17,7 +17,7 @@ describe('replaceWithEnvVar', () => {
             b: '@@PORT'
         };
         const actual = replaceWithEnvVar_1.replaceWithEnvVar(baseConfig, process);
-        const expected = Object.assign(Object.assign({}, baseConfig), { b: '5050' });
+        const expected = { ...baseConfig, b: '5050' };
         assert.deepEqual(actual, expected);
     });
     it('should merge with deeply nested configs also', () => {

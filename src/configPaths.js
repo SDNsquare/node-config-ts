@@ -19,8 +19,15 @@ exports.configPaths = (process) => {
     const userConfig = path.resolve(process.cwd(), `${baseDIR}/user/${process.env['USER'] ||
         process.env['USERNAME'] ||
         DEFAULT_FILENAME}.json`);
-    const systemConfig = path.resolve("/etc/sdnsquare/", `${process.env['ETCCONFIG'] || "grid"}.json`);
+    const systemConfig = path.resolve('/etc/sdnsquare/', `${process.env['ETCCONFIG'] || 'grid'}.json`);
     const args = minimist(process.argv.slice(2));
-    const cliConfig = args['configfile'] || "/noconfigfile";
-    return { defaultConfig, envConfig, deploymentConfig, userConfig, systemConfig, cliConfig };
+    const cliConfig = args['configfile'] || '/noconfigfile';
+    return {
+        defaultConfig,
+        envConfig,
+        deploymentConfig,
+        userConfig,
+        systemConfig,
+        cliConfig
+    };
 };
