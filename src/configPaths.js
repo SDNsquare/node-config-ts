@@ -20,7 +20,7 @@ exports.configPaths = (process) => {
         process.env['USERNAME'] ||
         DEFAULT_FILENAME}.json`);
     const systemConfig = path.resolve('/etc/sdnsquare/', `${process.env['ETCCONFIG'] || 'grid-backend'}.json`);
-    const args = minimist_1.default(process.argv.slice(2));
+    const args = minimist_1(process.argv.slice(2));
     const cliConfig = args['configfile'] || '/noconfigfile';
     return {
         defaultConfig,
